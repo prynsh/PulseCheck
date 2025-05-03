@@ -1,8 +1,6 @@
 'use client'
 import axios from "axios";
 import { useState } from "react";
-import SignIn from "./component/SignIn";
-import Topbar from "./component/Topbar";
 
 
 async function getStatus(url:string){
@@ -14,8 +12,8 @@ async function getStatus(url:string){
 export default function Home() {
   const [url,setUrl]= useState("")
   return (
-    <div className="flex justify-center flex-col items-center h-screen w-screen custom-gradient-bg">
-
+    <div className="flex justify-center flex-col items-center h-screen w-screen ">
+      hello
       {/* <SignIn/> */}
       {/* <input className="w-fit p-2 m-2 border" placeholder="URL..." value={url} onChange={(e)=>{
         setUrl(e.target.value)
