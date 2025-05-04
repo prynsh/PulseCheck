@@ -1,10 +1,23 @@
 
 'use client'
 import { Button } from '@/components/ui/button'
-import { signIn } from 'next-auth/react'
-import React from 'react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import React, { useEffect } from 'react'
 
 const SignInComponent = () => {
+    const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/");
+    }
+  }, [session, router]);
+
+  const handleGoogleSignIn = async () => {
+    await signIn("google", { callbackUrl: "/" });
+  };
   return (
     <div className="min-h-screen  flex items-center justify-center p-4 ">
       <div className="w-full max-w-sm space-y-6  p-6 rounded-lg shadow-lg bg-[#a7bcf9]">
@@ -16,9 +29,7 @@ const SignInComponent = () => {
         </div>
         <Button variant="default" className="w-full bg-[#1b1a25] text-white m-2 p-2" onClick={()=>{
             console.log("clicked")
-            signIn("google",{
-                callbackUrl:"/"
-            })
+            handleGoogleSignIn()
         }} >
           <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
             <path
