@@ -11,12 +11,12 @@ const SignInComponent = () => {
 
   useEffect(() => {
     if (session) {
-      router.push("/");
+      router.push("/dashboard");
     }
   }, [session, router]);
 
   const handleGoogleSignIn = async () => {
-    await signIn("google", { callbackUrl: "/" });
+    await signIn("google", { callbackUrl: "/dashboard" });
   };
   return (
     <div className="min-h-screen  flex items-center justify-center p-4 ">
