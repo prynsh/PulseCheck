@@ -120,7 +120,8 @@
 }
 /* styles/globals.css or wherever your global styles are */
 .custom-gradient-bg {
-  background: radial-gradient(ellipse at top, #1d4ed8, #1e40af, #111827);
+  /* background: linear-gradient(to bottom left, #0f172a, #1e1a78, #0f172a); */
+  background: conic-gradient(at bottom right, #1d4ed8, #1e40af, #111827);
 }
 
 

@@ -29,7 +29,7 @@
 
 import Image from "next/image";
 import React from "react";
-import SignIn from "./SignIn";
+import SignIn from "./Login";
 import Link from "next/link";
 
 const Topbar = () => {
@@ -41,20 +41,20 @@ const Topbar = () => {
       >
         <Link href={"/"} className="flex items-center space-x-2">
           <Image src="/heartbeat.png" alt="Logo" height={40} width={40} />
-          <h1 className="text-2xl text-white">PulseCheck</h1>
+          <h1 className="text-2xl text-white"></h1>
         </Link>
 
         <div className="flex space-x-2 text-white text-sm font-medium">
           <a
             href="#_"
-            className="px-5 py-2.5 relative rounded-full group overflow-hidden text-white font-medium bg-transparent inline-block transition-colors duration-200 hover:bg-gray-200 hover:text-black"
+            className="px-5 py-2.5 relative rounded-full group overflow-hidden text-white font-medium bg-transparent inline-block transition-colors duration-200 hover:bg-[#a4a2de] hover:text-black"
           >
             <span className="relative">Features</span>
           </a>
 
           <a
             href="#_"
-            className="px-5 py-2.5 relative rounded-full group overflow-hidden  bg-transparent text-white inline-block transition-colors duration-200 hover:bg-zinc-300 hover:text-black"
+            className="px-5 py-2.5 relative rounded-full group overflow-hidden  bg-transparent text-white inline-block transition-colors duration-200 hover:bg-[#a4a2de] hover:text-black"
           >
             <span className="relative">Github</span>
           </a>

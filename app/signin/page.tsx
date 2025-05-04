@@ -20,9 +20,9 @@ const SignInComponent = () => {
   };
   return (
     <div className="min-h-screen  flex items-center justify-center p-4 ">
-      <div className="w-full max-w-sm space-y-6  p-6 rounded-lg shadow-lg bg-[#a7bcf9]">
+      <div className="w-full max-w-sm space-y-6  p-6 rounded-lg shadow-lg bg-[#a4a2de] ">
         <div className=" space-y-2">
-        <h1 className=' text-2xl font-extrabold items-center flex justify-center '>Welcome to PulseCheck</h1>
+        <h1 className=' text-2xl font-extrabold items-center flex justify-center'>Welcome to PulseCheck</h1>
         <p className=' flex justify-center text-center text-sm '>Login to get started</p>
           <div className=" flex items-center">
             

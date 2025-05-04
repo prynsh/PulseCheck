@@ -44,7 +44,7 @@ const SignIn = () => {
     <div>
       <button
   onClick={() => router.push("/signin")}
-  className="px-5 py-2 relative rounded-full group overflow-hidden bg-transparent text-white inline-block transition-colors duration-200 hover:bg-zinc-300 hover:text-black"
+  className="px-5 py-2 relative rounded-full group overflow-hidden bg-transparent text-white inline-block transition-colors duration-200 hover:bg-[#a4a2de] hover:text-black"
 >
   <span className="relative">Login</span>
 </button>
