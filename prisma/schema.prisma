@@ -42,12 +42,14 @@ model Account {
 
 
 model Projects{
-  id          Int   @id @default(autoincrement())
-  name        String
-  url         String
-  userId      Int 
-  user        User @relation(fields: [userId], references: [id] )
-  ping        Ping[]
+  id              Int   @id @default(autoincrement())
+  name            String
+  url             String
+  userId          Int 
+  discordEnabled  Boolean @default(false)
+  discordUrl      String @default("")
+  user            User @relation(fields: [userId], references: [id] )
+  ping            Ping[]
 }
 
 model Ping{

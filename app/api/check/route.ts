@@ -1,10 +1,25 @@
 
 import { prisma } from "@/constants/client";
+import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
+  const token = await getToken({ req });
+
+  if (!token?.email) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email: token.email },
+  });
+
+  if (!user) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+
   const body = await req.json();
-  const { name, url, userId } = body;
+  const { name, url, discordEnabled, discordUrl } = body;
 
   const response = await fetch(url, { method: 'GET' });
   const status = response.status;
@@ -14,14 +29,16 @@ export async function POST(req: NextRequest) {
     data: {
       name,
       url,
-      userId 
+      userId: user.id,
+      discordEnabled,
+      discordUrl,
     }
   });
 
   const ping = await prisma.ping.create({
     data: {
       projectId: project.id,
-      status: `${status} ${statusText}`, 
+      status: `${status} ${statusText}`,
     }
   });
 

@@ -12,23 +12,38 @@
 //   );
 // }
 
-'use client'
+'use client';
 
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 import Modal from '../component/Modal';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data: session } = useSession();
 
-  const handleSave = (data: {
+  const handleSave = async (data: {
     name: string;
     url: string;
     discordEnabled: boolean;
     discordUrl: string;
   }) => {
-    console.log('Saved website data:', data);
-    // Optionally: send to API or update state
+    if (!session?.user?.email) return;
+
+    try {
+      await axios.post("/api/check", {
+        name: data.name,
+        url: data.url,
+        discordEnabled: data.discordEnabled,
+        discordUrl: data.discordUrl,
+      });
+
+      setIsModalOpen(false); // Optional: close modal after save
+    } catch (error) {
+      console.error("Failed to save server:", error);
+    }
   };
 
   return (
