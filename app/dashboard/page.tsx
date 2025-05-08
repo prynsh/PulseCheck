@@ -19,6 +19,7 @@ import React, { useState } from 'react';
 import Modal from '../component/Modal';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
+import Card from '../component/Card';
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Dashboard() {
     if (!session?.user?.email) return;
 
     try {
-      await axios.post("/api/check", {
+      await axios.post("/api/project", {
         name: data.name,
         url: data.url,
         discordEnabled: data.discordEnabled,
@@ -51,8 +52,8 @@ export default function Dashboard() {
       <div className="flex flex-col items-center text-center space-y-4">
         <p>Start Pinging your Servers Today</p>
         <Button onClick={() => setIsModalOpen(true)}>Add a Server</Button>
+        <Card/>
       </div>
-
       <Modal open={isModalOpen} onOpenChange={setIsModalOpen} onSave={handleSave} />
     </div>
   );

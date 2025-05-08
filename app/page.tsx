@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 async function getStatus(url:string){
-      const response = await axios.post("/api/check",{url});
+      const response = await axios.post("/api/",{url});
       console.log(response);
 }
 
