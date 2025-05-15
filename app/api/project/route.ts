@@ -42,9 +42,6 @@ export async function POST(req: NextRequest) {
 
 
 
-
-
-
 export async function GET(req: NextRequest) {
   const token = await getToken({ req });
 
@@ -59,15 +56,22 @@ export async function GET(req: NextRequest) {
   if (!user) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
+
   const projects = await prisma.projects.findMany({
-      where: {
-        userId:user.id
+    where: {
+      userId: user.id,
+    },
+    include: {
+      ping: {
+        orderBy: {
+          createdAt: "desc",
+        },
+        take: 1,
       },
-      include:{
-        ping:true
-      }
+    },
   });
 
   return NextResponse.json(projects);
 }
+
 
