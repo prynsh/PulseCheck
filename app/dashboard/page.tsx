@@ -74,7 +74,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center text-white">
+    <div className="w-screen h-screen flex justify-center items-center text-[#9a8556]">
       <div className="flex flex-col items-center text-center space-y-4">
         <p>Start Pinging your Servers Today</p>
         <Button onClick={() => setIsModalOpen(true)}>Add a Server</Button>

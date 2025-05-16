@@ -22,7 +22,7 @@ async function processQueue() {
     if (typeof job === "string") {
         try {
           data = JSON.parse(job) as NotificationJob;
-        } catch (err:unknown) {
+        } catch (err) {
           console.error("❌ Failed to parse JSON:", job);
           continue;
         }
@@ -51,22 +51,28 @@ async function processQueue() {
 
     if (discord) {
       try {
-        await fetch(discord, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            embeds: [
-              {
-                title: `🔔 Alert: ${projectName}`,
-                description: `**Status:** ${status}\n**URL:** [${url}](${url})`,
-                color: 16711680, // red
-                timestamp: new Date().toISOString(),
-              },
-            ],
-          }),
-        });
-
-        console.log(`🟣 Discord alert sent for ${projectName}`);
+        const response = await fetch(discord, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              embeds: [
+                {
+                  title: `🔔 Alert: ${projectName}`,
+                  description: `**Status:** ${status}\n**URL:** [${url}](${url})`,
+                  color: 16711680,
+                  timestamp: new Date().toISOString(),
+                },
+              ],
+            }),
+          });
+          
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error(`❌ Discord webhook failed: ${response.status} ${response.statusText}\n${errorText}`);
+          } else {
+            console.log(`✅ Discord webhook sent successfully for ${projectName}`);
+          }
+          
       } catch (err) {
         console.error("Failed to send Discord webhook:", err);
       }

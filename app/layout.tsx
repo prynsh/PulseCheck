@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body
       //bg-[#293251]
-        className={`${geistSans.variable} ${geistMono.variable} antialiased custom-gradient-bg `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         <Providers>
           <Topbar/>

@@ -11,6 +11,7 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { ArrowBigRight } from "lucide-react";
 
 const SignIn = () => {
   const { data: session } = useSession();
@@ -44,9 +45,9 @@ const SignIn = () => {
     <div>
       <button
   onClick={() => router.push("/signin")}
-  className="px-5 py-2 relative rounded-full group overflow-hidden bg-transparent text-white inline-block transition-colors duration-200 hover:bg-[#a4a2de] hover:text-black"
+  className="px-5 py-2 relative rounded-full group overflow-hidden  text-[#b49758] inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
 >
-  <span className="relative">Login</span>
+  <span className="relative flex items-center">Login<ArrowBigRight/></span>
 </button>
 
     </div>

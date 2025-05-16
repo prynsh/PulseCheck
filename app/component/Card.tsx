@@ -97,7 +97,7 @@ interface CardProps {
 const Card = ({ project, onDelete }: CardProps) => {
   return (
     <div
-      className="bg-[#a4a2de] w-6xl hover: text-black p-4 rounded-xl shadow-lg flex items-center justify-between space-x-4"
+      className="bg-[#a5a199] w-6xl hover: text-black p-4 rounded-xl shadow-lg flex items-center justify-between space-x-4"
     >
       <div className="flex items-center space-x-2">
         {project.ping.length > 0 && (
