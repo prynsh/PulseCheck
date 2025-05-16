@@ -75,3 +75,46 @@ export async function GET(req: NextRequest) {
 }
 
 
+export async function DELETE(req: NextRequest) {
+  const token = await getToken({ req });
+
+  if (!token?.email) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email: token.email },
+  });
+
+  if (!user) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+
+  if (!id) {
+    return NextResponse.json({ error: "Project ID is required" }, { status: 400 });
+  }
+
+  const project = await prisma.projects.findFirst({
+    where: {
+      id: parseInt(id),
+      userId: user.id,
+    },
+  });
+
+  if (!project) {
+    return NextResponse.json({ error: "Project not found or unauthorized" }, { status: 404 });
+  }
+
+  await prisma.ping.deleteMany({
+    where: { projectId: project.id },
+  });
+
+  await prisma.projects.delete({
+    where: { id: project.id },
+  });
+
+  return NextResponse.json({ message: "Project deleted successfully" });
+}

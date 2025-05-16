@@ -12,18 +12,43 @@
 //   );
 // }
 
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import React, { useState } from 'react';
-import Modal from '../component/Modal';
-import axios from 'axios';
-import { useSession } from 'next-auth/react';
-import Card from '../component/Card';
+import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react";
+import Modal from "../component/Modal";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import Card from "../component/Card";
+import { Project } from "@/constants/types";
+
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [servers, setServers] = useState<Project[]>([]);
   const { data: session } = useSession();
+
+  const fetchServers = async () => {
+    try {
+      const res = await axios.get("/api/project");
+      setServers(res.data);
+    } catch (error) {
+      console.error("Failed to fetch servers:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchServers();
+  }, []);
+
+  const handleDelete = async (id: number) => {
+    try {
+      await axios.delete(`/api/project?id=${id}`);
+      setServers((prev) => prev.filter((proj) => proj.id !== id));
+    } catch (err) {
+      console.error("Delete failed", err);
+    }
+  };
 
   const handleSave = async (data: {
     name: string;
@@ -41,7 +66,8 @@ export default function Dashboard() {
         discordUrl: data.discordUrl,
       });
 
-      setIsModalOpen(false); // Optional: close modal after save
+      setIsModalOpen(false);
+      await fetchServers(); 
     } catch (error) {
       console.error("Failed to save server:", error);
     }
@@ -52,9 +78,17 @@ export default function Dashboard() {
       <div className="flex flex-col items-center text-center space-y-4">
         <p>Start Pinging your Servers Today</p>
         <Button onClick={() => setIsModalOpen(true)}>Add a Server</Button>
-        <Card/>
+        <div className="mt-4 space-y-2">
+        {servers.map((server) => (
+  <Card key={server.id} project={server} onDelete={handleDelete} />
+))}
+        </div>
       </div>
-      <Modal open={isModalOpen} onOpenChange={setIsModalOpen} onSave={handleSave} />
+      <Modal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        onSave={handleSave}
+      />
     </div>
   );
 }
