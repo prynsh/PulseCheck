@@ -19,7 +19,7 @@ import React, { useEffect, useState } from "react";
 import Modal from "../component/Modal";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import Card from "../component/Card";
+import Card from "../component/ProjectCard";
 import { Project } from "@/constants/types";
 
 
