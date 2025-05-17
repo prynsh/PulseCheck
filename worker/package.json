@@ -1,0 +1,19 @@
+{
+    "name": "redis-worker",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "worker.ts",
+    "scripts": {
+      "start": "ts-node worker.ts"
+    },
+    "dependencies": {
+      "@upstash/redis": "^1.21.0",
+      "@sendgrid/mail": "^7.7.0",
+      "dotenv": "^16.3.1"
+    },
+    "devDependencies": {
+      "ts-node": "^10.9.1",
+      "typescript": "^5.4.0"
+    }
+  }
+  
