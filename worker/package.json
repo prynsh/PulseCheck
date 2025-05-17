@@ -4,7 +4,7 @@
     "type": "module",
     "main": "worker.ts",
     "scripts": {
-      "start": "ts-node worker.ts"
+      "start": "npx tsx worker.ts"
     },
     "dependencies": {
       "@upstash/redis": "^1.21.0",

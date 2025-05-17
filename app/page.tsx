@@ -113,7 +113,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="flex-col flex justify-center items-center text-white min-h-screen w-screen">
+    <div className="flex-col flex justify-center items-center text-white min-h-screen w-full">
       <div className="flex justify-center flex-col items-center pt-32 space-y-7 w-full px-4">
         <FadeInWhenVisible delay={0.1}>
           <Button className="border border-[#f3da72] font-semibold shadow-md shadow-amber-200 rounded-full px-10">
@@ -168,7 +168,7 @@ export default function Home() {
 
       <div
         id="how-it-works"
-        className="py-32 px-4 flex justify-center items-stretch gap-10 w-full max-w-7xl"
+        className="py-32 px-4 flex justify-center items-stretch gap-10 w-full overflow-x-hidden max-w-7xl"
       >
         <FadeInWhenVisible delay={0.7}>
           <div className="flex-1 flex justify-center">
