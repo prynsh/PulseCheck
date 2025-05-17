@@ -88,7 +88,7 @@ const Modal: React.FC<WebsiteModalProps> = ({ open, onOpenChange, onSave }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] bg-[#a4a2de]">
+      <DialogContent className="sm:max-w-[425px] bg-[#f3da72]">
         <DialogHeader>
           <DialogTitle className="text-xl">Add your servers</DialogTitle>
         </DialogHeader>

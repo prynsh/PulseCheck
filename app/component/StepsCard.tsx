@@ -22,9 +22,10 @@ const StepsSection = () => {
   ];
 
   return (
-    <div className=" p-6 rounded-3xl max-w-md mx-auto space-y-4">
+    <div className="  max-w-md mx-auto space-y-6">
+      <h2 className="text-center text-4xl font-semibold italic text-white">How it Works?</h2>
       {steps.map((step, index) => (
-        <div key={step.stepNumber} className="flex flex-col items-center space-y-4">
+        <div key={step.stepNumber} className="flex flex-col items-center text-center space-y-3 pt-6">
           <StepCard
             stepNumber={step.stepNumber}
             title={step.title}

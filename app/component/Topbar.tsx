@@ -1,32 +1,3 @@
-// import Image from 'next/image'
-// import React from 'react'
-// import SignIn from './SignIn'
-
-// const Topbar = () => {
-//   return (
-//     <div className='flex justify-center  backdrop-blur-none   '>
-//         <div className='border rounded-full flex justify-between items-center m-3 p-3 w-5xl overflow-x-hidden'>
-//             <div>
-//                 <Image src='/heartbeat.png' alt='Logo' height={50} width={50} ></Image>
-//             </div>
-//             <div className='flex space-x-10 w-1/3'>
-//             <div>
-//                 Features
-//             </div>
-//             <div>
-//                 Github
-//             </div>
-//             </div>
-//             <div>
-//             <SignIn/>
-//             </div>
-//             </div>
-//     </div>
-//   )
-// }
-
-// export default Topbar
-
 import Image from "next/image";
 import React from "react";
 import SignIn from "./Login";
@@ -46,14 +17,26 @@ const Topbar = () => {
 
         <div className="flex space-x-2 text-white text-sm font-medium">
           <a
-            href="#_"
+            href="#features"
             className="px-5 py-2.5 relative rounded-full group overflow-hidden text-[#b49758] font-medium bg-transparent inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
           >
             <span className="relative">Features</span>
           </a>
+          <a
+            href="#how-it-works"
+            className="px-5 py-2.5 relative rounded-full group overflow-hidden text-[#b49758] font-medium bg-transparent inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
+          >
+            <span className="relative">How it Works</span>
+          </a>
+          <a
+            href="#faq"
+            className="px-5 py-2.5 relative rounded-full group overflow-hidden text-[#b49758] font-medium bg-transparent inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
+          >
+            <span className="relative">FAQ</span>
+          </a>
 
           <a
-            href="#_"
+            href="https://github.com/prynsh/PulseCheck"
             className="px-5 py-2.5 relative rounded-full group overflow-hidden  bg-transparent text-[#b49758] inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
           >
             <span className="relative">Github</span>
