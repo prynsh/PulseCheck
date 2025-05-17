@@ -24,6 +24,7 @@ async function processQueue() {
           data = JSON.parse(job) as NotificationJob;
         } catch (err) {
           console.error("❌ Failed to parse JSON:", job);
+          console.log(err)
           continue;
         }
       } else {

@@ -1,38 +1,44 @@
-
 'use client'
 import { Button } from '@/components/ui/button'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
+import { toast } from 'sonner'
 
 const SignInComponent = () => {
-    const { data: session } = useSession();
-  const router = useRouter();
+  const { data: session } = useSession()
+  const router = useRouter()
 
   useEffect(() => {
     if (session) {
-      router.push("/dashboard");
+      router.push("/dashboard")
     }
-  }, [session, router]);
+  }, [session, router])
 
   const handleGoogleSignIn = async () => {
-    await signIn("google", { callbackUrl: "/dashboard" });
-  };
+    try {
+      toast("Redirecting to Google Sign-In...")
+      await signIn("google", { callbackUrl: "/dashboard" })
+    } catch (error) {
+      toast.error("Failed to sign in with Google")
+      console.log(error);
+    }
+  }
+
   return (
-    <div className="min-h-screen  flex items-center justify-center p-4 ">
-      <div className="w-full max-w-sm space-y-6 bg-[#9a8556]  p-6 rounded-lg shadow-lg   ">
-        <div className=" space-y-2">
-        <h1 className=' text-2xl font-extrabold items-center flex justify-center'>Welcome to PulseCheck</h1>
-        <p className=' flex justify-center text-center text-sm '>Login to get started</p>
-          <div className=" flex items-center">
-            
-        </div>
-        <Button variant="default" className="w-full   text-white m-2 p-2" onClick={()=>{
-            console.log("clicked")
-            handleGoogleSignIn()
-        }} >
-          <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
-            <path
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-sm space-y-6 bg-[#9a8556] p-6 rounded-lg shadow-lg">
+        <div className="space-y-2">
+          <h1 className='text-2xl font-extrabold items-center flex justify-center'>Welcome to PulseCheck</h1>
+          <p className='flex justify-center text-center text-sm'>Login to get started</p>
+
+          <Button
+            variant="default"
+            className="w-full text-white m-2 p-2"
+            onClick={handleGoogleSignIn}
+          >
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+           <path
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
               fill="#4285F4"
             />
@@ -49,10 +55,10 @@ const SignInComponent = () => {
               fill="#EA4335"
             />
           </svg>
-          Continue with Google
-        </Button>
+            Continue with Google
+          </Button>
+        </div>
       </div>
-    </div>
     </div>
   )
 }

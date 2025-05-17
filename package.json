@@ -28,9 +28,11 @@
     "motion": "^12.12.1",
     "next": "15.3.1",
     "next-auth": "^4.24.11",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "redis-cli": "^2.1.2",
+    "sonner": "^2.0.3",
     "tailwind-merge": "^3.2.0",
     "three": "^0.176.0",
     "three-globe": "^2.42.4"

@@ -63,6 +63,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import Form from "./Form";
+import { toast } from "sonner";
 
 interface WebsiteModalProps {
   open: boolean;
@@ -83,6 +84,7 @@ const Modal: React.FC<WebsiteModalProps> = ({ open, onOpenChange, onSave }) => {
     discordUrl: string;
   }) => {
     onSave(data);
+    toast.success(`Website saved successfully! We'll start pinging it soon`);
     onOpenChange(false);
   };
 
