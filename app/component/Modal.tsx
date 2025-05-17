@@ -1,60 +1,3 @@
-// import React from "react";
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
-// import { Button } from "@/components/ui/button";
-// import { PlusCircle } from "lucide-react";
-// import Form from "./Form";
-
-// interface WebsiteModalProps {
-//   onSave: (data: {
-//     name: string;
-//     url: string;
-//     discordEnabled: boolean;
-//     discordUrl: string;
-//   }) => void;
-// }
-
-// const Modal: React.FC<WebsiteModalProps> = ({ onSave }) => {
-//   const [open, setOpen] = React.useState(false);
-
-//   const handleSave = (data: {
-//     name: string;
-//     url: string;
-//     discordEnabled: boolean;
-//     discordUrl: string;
-//   }) => {
-//     onSave(data);
-//     setOpen(false);
-//   };
-
-//   return (
-//     <Dialog open={open} onOpenChange={setOpen}>
-//       <DialogTrigger asChild>
-//         <Button className="gap-2 group">
-//           <PlusCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
-//           <span>Add Website</span>
-//         </Button>
-//       </DialogTrigger>
-//       <DialogContent className="sm:max-w-[425px]">
-//         <DialogHeader>
-//           <DialogTitle className="text-xl">Add New Website</DialogTitle>
-//         </DialogHeader>
-//         <Form
-//           onSubmit={handleSave}
-//           onCancel={() => setOpen(false)}
-//         />
-//       </DialogContent>
-//     </Dialog>
-//   );
-// };
-
-// export default Modal;
-
 import React from "react";
 import {
   Dialog,
@@ -64,6 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import Form from "./Form";
 import { toast } from "sonner";
+import { AlertTriangle } from "lucide-react";
 
 interface WebsiteModalProps {
   open: boolean;
@@ -94,6 +38,13 @@ const Modal: React.FC<WebsiteModalProps> = ({ open, onOpenChange, onSave }) => {
         <DialogHeader>
           <DialogTitle className="text-xl">Add your servers</DialogTitle>
         </DialogHeader>
+        <div className=" items-start gap-2 p-2  text-white bg-[#021e2b] border border-black rounded-md text-sm">
+          <AlertTriangle className="mt-0.5 h-6 w-6" />
+          <p>
+            By default, we will send an email notification if this server returns any status code other than 200.
+          </p>
+          
+        </div>
         <Form
           onSubmit={handleSave}
           onCancel={() => onOpenChange(false)}

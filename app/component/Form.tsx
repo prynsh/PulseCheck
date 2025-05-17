@@ -77,6 +77,11 @@ const Form: React.FC<WebsiteFormProps> = ({ onSubmit, onCancel }) => {
   }`}
 >
 
+          
+          <p className="items-start gap-2 p-2  text-white bg-[#021e2b] border border-black rounded-md text-sm">
+            Click <a className="underline underline-offset-2" href="https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for-your-website-status-on-ubuntu-18-04"
+            target="_blank" rel="noopener noreferrer">here</a> to learn how to get the webhook URL for your channel
+          </p>
           <Label
             htmlFor="discord-url"
             className={`transition-all duration-200 ${
