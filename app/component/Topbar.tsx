@@ -37,6 +37,8 @@ const Topbar = () => {
 
           <a
             href="https://github.com/prynsh/PulseCheck"
+             target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2.5 relative rounded-full group overflow-hidden  bg-transparent text-[#b49758] inline-block transition-colors duration-200 hover:bg-[#f3da72] hover:text-black"
           >
             <span className="relative">Github</span>

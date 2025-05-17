@@ -84,7 +84,7 @@ const Modal: React.FC<WebsiteModalProps> = ({ open, onOpenChange, onSave }) => {
     discordUrl: string;
   }) => {
     onSave(data);
-    toast.success(`Website saved successfully! We'll start pinging it soon`);
+    toast.success(`Website saved successfully! We'll start monitoring it soon`);
     onOpenChange(false);
   };
 

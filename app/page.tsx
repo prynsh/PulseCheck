@@ -117,7 +117,9 @@ export default function Home() {
       <div className="flex justify-center flex-col items-center pt-32 space-y-7 w-full px-4">
         <FadeInWhenVisible delay={0.1}>
           <Button className="border border-[#f3da72] font-semibold shadow-md shadow-amber-200 rounded-full px-10">
-            Give a Star on Github
+            <a href="https://github.com/prynsh/PulseCheck"
+             target="_blank"
+            rel="noopener noreferrer">Give a Star on Github</a>
           </Button>
         </FadeInWhenVisible>
 
@@ -149,7 +151,7 @@ export default function Home() {
           <div className="flex space-x-2 items-center">
             <HoverButton
               text="Start Monitoring for Free"
-              onClick={() => router.push("/signin")}
+              onClick={() => router.push("/dashboard")}
             />
             <Button className="rounded-full p-5 px-4 bg-black text-white border border-white shadow-md shadow-orange-400 hover:bg-black">
               View Demo
