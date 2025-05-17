@@ -18,5 +18,5 @@ export async function middleware(req: NextRequest) {
 
 // Keep your current matcher to handle other routes
 export const config = { 
-  matcher: ["/((?!api/auth|signin|_next/static|_next/image|favicon.ico|public).*)"],
+  matcher: ["/((?!api/auth|api/ping|signin|_next/static|_next/image|favicon.ico|public).*)"],
 };

@@ -159,7 +159,7 @@ export default function Home() {
       </div>
 
       <FadeInWhenVisible delay={0.1}>
-        <div className="py-32 w-full px-4">
+        <div id="features" className="py-32 w-full px-4">
           <FeatureCardsSection />
         </div>
       </FadeInWhenVisible>
