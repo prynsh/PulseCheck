@@ -108,6 +108,7 @@ import FaqSection from "./component/FaqComponent";
 import FeatureCardsSection from "./component/Feature";
 import FadeInWhenVisible from "./component/FadeWhenVisible";
 import Typewriter from "./component/TypeWriter";
+import { DemoDialog } from "./component/DemoDialogue";
 
 export default function Home() {
   const router = useRouter();
@@ -153,9 +154,11 @@ export default function Home() {
               text="Start Monitoring for Free"
               onClick={() => router.push("/dashboard")}
             />
-            <Button className="rounded-full p-5 px-4 bg-black text-white border border-white shadow-md shadow-orange-400 hover:bg-black">
+            {/* <Button className="rounded-full p-5 px-4 bg-black text-white border border-white shadow-md shadow-orange-400 hover:bg-black">
               View Demo
-            </Button>
+            </Button> */}
+            <DemoDialog videoSrc="/demo-video.mp4" />
+
           </div>
         </FadeInWhenVisible>
       </div>

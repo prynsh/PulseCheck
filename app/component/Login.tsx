@@ -30,7 +30,7 @@ const SignIn = () => {
             ></Image>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem className="hover:border-none  focus:border-none border-none outline-none"><button onClick={() => signOut()} className="text-white flex items-center cursor-pointer ">
+            <DropdownMenuItem className="hover:border-none  focus:border-none border-none outline-none"><button onClick={() =>  signOut({ callbackUrl: "/" })} className="text-white flex items-center cursor-pointer ">
             Sign Out<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4 text-white ">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
             </svg>
