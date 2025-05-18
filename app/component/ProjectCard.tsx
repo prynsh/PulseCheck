@@ -18,8 +18,8 @@ const cardVariants = {
 
 const Card = ({ project, onDelete }: CardProps) => {
   const handleDelete = () => {
-    onDelete(project.id); // Call your deletion logic
-    toast.success(`${project.name} has been deleted.`); // ✅ Show toast
+    onDelete(project.id); 
+    toast.success(`${project.name} has been deleted.`);
   };
   return (
     <motion.div
