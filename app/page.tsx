@@ -17,7 +17,7 @@ export default function Home() {
     <div className="flex-col flex justify-center items-center text-white min-h-screen w-full">
       <div className="flex justify-center flex-col items-center pt-32 space-y-7 w-full px-4">
         <FadeInWhenVisible delay={0.1}>
-          <Button className="border border-[#f3da72] font-semibold shadow-md shadow-amber-200 rounded-full px-10">
+          <Button className="border border-[   font-semibold shadow-md shadow-amber-200 rounded-full px-10">
             <a href="https://github.com/prynsh/PulseCheck"
              target="_blank"
             rel="noopener noreferrer">Give a Star on Github</a>

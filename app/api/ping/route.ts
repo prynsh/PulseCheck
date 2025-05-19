@@ -39,7 +39,7 @@ export async function GET() {
           };
           console.log(JSON.stringify(notification))
           await redis.lpush("queue:notifications", JSON.stringify(notification));
-          console.log(`📥 Enqueued alert for ${project.name}`);
+          console.log(`Enqueued alert for ${project.name}`);
         }
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Unknown error";

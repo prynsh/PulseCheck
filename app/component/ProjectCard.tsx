@@ -5,6 +5,8 @@ import { Project } from "@/constants/types";
 import React from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
 
 interface CardProps {
   project: Project;
@@ -17,9 +19,13 @@ const cardVariants = {
 };
 
 const Card = ({ project, onDelete }: CardProps) => {
+  const router = useRouter()
   const handleDelete = () => {
     onDelete(project.id); 
     toast.success(`${project.name} has been deleted.`);
+  };
+   const handleSeeDetails = () => {
+    router.push(`/project/${project.id}`); // ← navigate to project details
   };
   return (
     <motion.div
@@ -48,7 +54,7 @@ const Card = ({ project, onDelete }: CardProps) => {
       </div>
 
       <div className="flex space-x-2">
-        <Button>See Details</Button>
+        <Button onClick={handleSeeDetails}>See Details</Button>
         <Button variant="destructive" onClick={handleDelete}>
           Delete
         </Button>
