@@ -38,7 +38,18 @@ export async function GET() {
             type: "ping-failed",
           };
           console.log(JSON.stringify(notification))
-          await redis.lpush("queue:notifications", JSON.stringify(notification));
+          const date = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+          const dedupKey = `notified:${project.id}:${date}`;
+          const alreadyNotified = await redis.get(dedupKey);
+
+          if (!alreadyNotified) {
+            await redis.lpush("queue:notifications", JSON.stringify(notification));
+            await redis.set(dedupKey, "1", { ex: 86400 }); // expires in 24 hours
+            console.log(`📥 Enqueued alert for ${project.name}`);
+          } else {
+            console.log(`⚠️ Skipped notification for ${project.name}, already notified today.`);
+          }
+
           console.log(`Enqueued alert for ${project.name}`);
         }
       } catch (err) {

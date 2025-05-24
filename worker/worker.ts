@@ -28,7 +28,7 @@ async function processQueue() {
           continue;
         }
       } else {
-        data = job as NotificationJob; // Cast because your runtime says it's object already
+        data = job as NotificationJob; 
       }
     const { projectName, status, url, email, discord, type } = data;
 
