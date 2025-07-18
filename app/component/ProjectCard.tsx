@@ -55,7 +55,7 @@ const Card = ({ project, onDelete }: CardProps) => {
   </div>
 
   {/* Buttons (Below on small, beside on md+) */}
-  <div className="flex gap-2">
+  <div className="flex justify-between gap-2">
     <Button onClick={handleSeeDetails}>See Details</Button>
     <Button variant="destructive" onClick={handleDelete}>
       Delete
