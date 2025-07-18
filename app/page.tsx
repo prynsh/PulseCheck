@@ -17,7 +17,7 @@ export default function Home() {
     <div className="flex-col flex justify-center items-center text-white min-h-screen w-full">
       <div className="flex justify-center flex-col items-center pt-32 space-y-7 w-full px-4">
         <FadeInWhenVisible delay={0.1}>
-          <Button className="border border-[   font-semibold shadow-md shadow-amber-200 rounded-full px-10">
+          <Button className="border font-semibold shadow-md shadow-amber-200 rounded-full px-10">
             <a href="https://github.com/prynsh/PulseCheck"
              target="_blank"
             rel="noopener noreferrer">Give a Star on Github</a>
@@ -25,7 +25,7 @@ export default function Home() {
         </FadeInWhenVisible>
 
         <FadeInWhenVisible delay={0.2}>
-          <h1 className="text-8xl font-bold text-center">
+           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-center">
             <span className="text-[#f3da72]">Ping</span> It.{" "}
             <span className="text-[#f3da72]">Find</span> It. <br />
             <span className="text-[#f3da72]">Fix</span> It.
@@ -71,7 +71,7 @@ export default function Home() {
 
       <div
         id="how-it-works"
-        className="py-32 px-4 flex justify-center items-stretch gap-10 w-full overflow-x-hidden max-w-7xl"
+        className="py-10 px-4 flex flex-col lg:flex-row justify-center items-stretch gap-10 w-full overflow-x-hidden max-w-7xl mx-auto"
       >
         <FadeInWhenVisible delay={0.7}>
           <div className="flex-1 flex justify-center">
@@ -87,7 +87,7 @@ export default function Home() {
       </div>
 
       <FadeInWhenVisible delay={0.9}>
-        <div id="faq" className="w-full px-4">
+        <div id="faq" className="w-full px-4 -py-10">
           <FaqSection />
         </div>
       </FadeInWhenVisible>

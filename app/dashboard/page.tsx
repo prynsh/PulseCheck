@@ -87,15 +87,15 @@ export default function Dashboard() {
   // Show loader while session is being loaded
   if (status === "loading") {
     return (
-      <div className="w-full h-screen flex justify-center items-center">
+      <div className=" h-screen flex justify-center items-center">
         <Loader />
       </div>
     );
   }
 
   return (
-    <div className="w-full h-screen flex justify-center items-center text-[#9a8556] px-4">
-      <div className="flex flex-col items-center text-center space-y-4 w-full max-w-3xl">
+    <div className="h-screen flex justify-center text-center items-center text-[#9a8556]">
+      <div className="flex flex-col items-center text-center space-y-4">
         <p>Start Pinging your Servers Today</p>
         <Button onClick={() => setIsModalOpen(true)}>Add a Server</Button>
 
@@ -103,7 +103,7 @@ export default function Dashboard() {
           <Loader />
         ) : (
           <motion.div
-            className="mt-4 space-y-4 w-full"
+            className="mt-4 space-y-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
